@@ -34,4 +34,4 @@ if __name__ == "__main__":
         thread.join()
 
     results = [results_queue.get() for _ in range(len(data_chunks))]
-    print(results[1])
+    print(results[0])
