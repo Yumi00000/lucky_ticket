@@ -1,16 +1,19 @@
 import threading
 from queue import Queue
 
+
 def process_worker(ticket_range, results_queue, semaphore):
     for ticket in ticket_range:
         with semaphore:
             result = process_ticket(ticket)
             results_queue.put(result)
 
+
 def process_ticket(ticket):
     ticket_str = str(ticket).zfill(6)
     first_numb, second_numb, third_numb, fourth_numb, fifth_numb, sixth_numb = map(int, ticket_str)
     return first_numb + second_numb + third_numb == fourth_numb + fifth_numb + sixth_numb
+
 
 if __name__ == "__main__":
     data = [format(i, '06d') for i in range(1000000)]
