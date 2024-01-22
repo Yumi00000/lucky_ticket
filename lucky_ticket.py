@@ -15,10 +15,7 @@ def process_ticket(ticket):
 
 
 if __name__ == "__main__":
-    data = []
-    for i in range(11):
-        data.append(int(input("Enter ticket number: ")))
-
+    data = [format(i, '06d') for i in range(1000000)]
     results_queue = Queue()
     semaphore = threading.Semaphore(4)
 
